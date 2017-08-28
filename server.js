@@ -109,6 +109,14 @@ app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
+var namelist = [];
+
+app.get('/namelist',function(req,res){
+   var name = req.query.name;
+   namelist.push(name);
+   res.send(JSON.stringify(namelist));
+});
+
 app.get('/:articlename',function(req,res){
    var name = req.params.articlename;
    res.send(createTemplate(name)); 
