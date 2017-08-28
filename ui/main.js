@@ -32,7 +32,7 @@ function submit_fun(){
     var finalnamelist;
     var names=['name1','name2','name3','name4'];
     
-    names.pust(nameentered);
+    names.push(nameentered);
     
     for(j=0;j<names.length;j++){
         finalnamelist = '<li>'+names[j]+'</li>';
