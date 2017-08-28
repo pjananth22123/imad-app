@@ -51,21 +51,21 @@ function createTemplate() {
  
  return `<html>
     <head>
-        <title>$title</title>
+        <title>$(title)</title>
         <meta content='width=device-width, initial-scale=1.0' name='viewport' />
         <link href="ui/style.css" rel="stylesheet"/>
     </head>
     <body>
         <div class="container">
         <h1 class="center underline">
-            $head
+            $(head)
         </h1>
         <a href='/'>home</a>
         <div>
-            <p>$date</p>
+            <p>$(date)</p>
         </div>
         <hr/>
-        $content
+        $(content)
         </div>
     </body>
 </html>`;
