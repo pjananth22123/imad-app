@@ -30,5 +30,6 @@ function clickchecker() {
 button = document.getElementById('click');
 clickcounter = 0;
 button.onclick = clickcount;
+
 }
 
