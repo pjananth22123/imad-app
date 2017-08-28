@@ -30,15 +30,27 @@ function submit_fun(){
     namelist = document.getElementById('namelist');
     nameentered = document.getElementById('Name').value;
     var finalnamelist = '';
-    var names=['name1','name2','name3','name4'];
     
-    names.push(nameentered);
+    var request = new XMLHttpRequest();
     
-    for(j=0;j<names.length;j++){
-        finalnamelist = finalnamelist + '<li>'+names[j]+'</li>';
-    }
+    request.onreadystatechange = function(){
+      
+      if(request.readyState === DONE){
+          if(request.status === 200){
+              names = request.responseText;
+              for(j=0;j<names.length;j++){
+                    finalnamelist = finalnamelist + '<li>'+names[j]+'</li>';
+              }
     
-    namelist.innerHTML = finalnamelist;
+               namelist.innerHTML = finalnamelist;
+          }
+      }
+        
+    };
+    
+    request.open('GET','http://pjananth22123.imad.hasura-app.io/namelist?name='+nameentered,true);
+    request.send(null);
+    
 }
 
 function clickchecker() {
