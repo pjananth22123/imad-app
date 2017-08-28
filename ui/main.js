@@ -26,10 +26,26 @@ function clickcount(){
     request.send(null);
 }
 
+function submit_fun(){
+    namelist = document.getElementById('namelist');
+    nameentered = document.getElementById('Name').value;
+    var finalnamelist;
+    var names=['name1','name2','name3','name4'];
+    
+    names.pust(nameentered);
+    
+    for(j=0;j<names.length;j++){
+        finalnamelist = '<li>'+names[j]+'</li>';
+    }
+    
+    namelist.innerHTML = finalnamelist;
+}
+
 function clickchecker() {
 button = document.getElementById('click');
 clickcounter = 0;
 button.onclick = clickcount;
-
+submitcheck = document.getElementById('Submit');
+submitcheck.onclick = submit_fun;
 }
 
