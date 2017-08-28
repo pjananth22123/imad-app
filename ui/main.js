@@ -35,7 +35,7 @@ function submit_fun(){
     
     request.onreadystatechange = function(){
       
-      if(request.readyState === DONE){
+      if(request.readyState === XMLHttpRequest.DONE){
           if(request.status === 200){
               names = request.responseText;
               for(j=0;j<names.length;j++){
