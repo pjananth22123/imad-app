@@ -4,8 +4,11 @@ window.onload = clickchecker;
 
 function clickcount(){
     
+    //Make a new request variable
     var request = new XMLHttpRequest();
     
+    
+    //Getting the return status of the request
     request.onreadystatechange = function(){
       
       if(request.readyState === XMLHttpRequest.DONE){
@@ -18,6 +21,7 @@ function clickcount(){
         
     };
     
+    //Making the request to the desired url
     request.open('GET','http://pjananth22123.imad.hasura-app.io/ui/checkcount',true);
     request.send(null);
 }
