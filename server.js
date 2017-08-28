@@ -90,6 +90,13 @@ function createTemplate(name) {
     
 }
 
+var countervar = 0;
+
+function counterfun(){
+    countervar = countervar + 1;
+    console.log(countervar);
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -117,6 +124,10 @@ app.get('/article-three',function(req,res){
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+});
+
+app.get('/ui/checkcount',function(req,res){
+    res.send(counterfun());
 });
 
 
