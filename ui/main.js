@@ -11,6 +11,5 @@ button.onclick = clickcount;
 
 function clickcount(){
     clickcounter = clickcounter + 1;
-    
     timespan.innerHTML = clickcounter.toString();
 }
