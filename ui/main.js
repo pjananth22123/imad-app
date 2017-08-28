@@ -37,7 +37,7 @@ function submit_fun(){
       
       if(request.readyState === XMLHttpRequest.DONE){
           if(request.status === 200){
-              names = request.responseText;
+              names = JSON.parse(request.responseText);
               for(j=0;j<names.length;j++){
                     finalnamelist = finalnamelist + '<li>'+names[j]+'</li>';
               }
