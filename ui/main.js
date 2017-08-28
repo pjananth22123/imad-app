@@ -3,7 +3,7 @@ console.log('Loaded!');
 window.onload = clickchecker();
 
 function clickchecker() {
-var button = document.getElementById('click');
+button = document.getElementById('click');
 clickcounter = 0;
 button.onclick = clickcount;
 }
