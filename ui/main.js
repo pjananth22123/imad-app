@@ -3,9 +3,23 @@ console.log('Loaded!');
 window.onload = clickchecker;
 
 function clickcount(){
-    clickcounter = clickcounter + 1;
-    timespan = document.getElementById('times');
-    timespan.innerHTML = clickcounter.toString();
+    
+    var request = XMLHttpRequest();
+    
+    request.onreadystatechange = function(){
+      
+      if(request.readyState === XMLHttpRequest.DONE){
+          if(request.status === 200){
+              counter = request.responseText;
+              timespan = document.getElementById('times');
+              timespan.innerHTML = counter;
+          }
+      }
+        
+    };
+    
+    request.open('GET','http://pjananth22123.imad.hasura-app.io/ui/checkcount',true);
+    request.send(null);
 }
 
 function clickchecker() {
