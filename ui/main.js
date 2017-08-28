@@ -29,7 +29,7 @@ function clickcount(){
 function submit_fun(){
     namelist = document.getElementById('namelist');
     nameentered = document.getElementById('Name').value;
-    var finalnamelist;
+    var finalnamelist = '';
     var names=['name1','name2','name3','name4'];
     
     names.push(nameentered);
