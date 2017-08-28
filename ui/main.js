@@ -4,7 +4,7 @@ window.onload = clickchecker;
 
 function clickcount(){
     
-    var request = XMLHttpRequest();
+    var request = new XMLHttpRequest();
     
     request.onreadystatechange = function(){
       
