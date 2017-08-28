@@ -94,7 +94,7 @@ var countervar = 0;
 
 function counterfun(){
     countervar = countervar + 1;
-    console.log(countervar);
+    return countervar.toString();
 }
 
 app.get('/', function (req, res) {
