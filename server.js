@@ -7,6 +7,7 @@ app.use(morgan('combined'));
 
 var template = {
   
+  articleone : {
   title:'Article One',
   head:'Article One',
   date:"10-SEP-2016",
@@ -40,14 +41,31 @@ var template = {
             This is article OneThis is article One
             This is article One
         </p>`
+  },
+  articletwo : {
+  title:'Article Two',
+  head:'Article-Two',
+  date:"15-SEP-2016",
+  content:`<p>
+           This is article Two          
+        </p>`
+  },
+  articlethree : {
+  title:'Article Three',
+  head:'Article-Three',
+  date:"20-SEP-2016",
+  content:`<p>
+           This is article Two          
+        </p>`
+  }
 };
 
-function createTemplate() {
+function createTemplate(name) {
     
-    var head = template.head;
-    var content = template.content;
-    var date = template.date;
-    var title = template.title;
+    var head = template(name).head;
+    var content = template(name).content;
+    var date = template(name).date;
+    var title = template(name).title;
  
  return `<html>
     <head>
@@ -80,8 +98,9 @@ app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-app.get('/article-one',function(req,res){
-   res.send(createTemplate()); 
+app.get('/:articlename',function(req,res){
+   var name = req.params.articlename;
+   res.send(createTemplate(name)); 
 });
 
 app.get('/article-two',function(req,res){
