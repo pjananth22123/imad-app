@@ -62,10 +62,10 @@ var template = {
 
 function createTemplate(name) {
     
-    var head = template(name).head;
-    var content = template(name).content;
-    var date = template(name).date;
-    var title = template(name).title;
+    var head = template[name].head;
+    var content = template[name].content;
+    var date = template[name].date;
+    var title = template[name].title;
  
  return `<html>
     <head>
