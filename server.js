@@ -58,14 +58,14 @@ function createTemplate() {
     <body>
         <div class="container">
         <h1 class="center underline">
-            $(head)
+            ${head}
         </h1>
         <a href='/'>home</a>
         <div>
-            <p>$(date)</p>
+            <p>${date}</p>
         </div>
         <hr/>
-        $(content)
+        ${content}
         </div>
     </body>
 </html>`;
