@@ -115,6 +115,9 @@ app.get('/article-three',function(req,res){
    res.sendFile(path.join(__dirname,'ui','article-three.html')); 
 });
 
+app.get('/ui/madi.png', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+});
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
