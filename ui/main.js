@@ -35,7 +35,7 @@ function submit_fun(){
     names.push(nameentered);
     
     for(j=0;j<names.length;j++){
-        finalnamelist = '<li>'+names[j]+'</li>';
+        finalnamelist = finalnamelist + '<li>'+names[j]+'</li>';
     }
     
     namelist.innerHTML = finalnamelist;
