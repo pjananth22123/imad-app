@@ -1,6 +1,6 @@
 console.log('Loaded!');
 
-window.onload = clickchecker();
+window.onload = clickchecker;
 
 function clickcount(){
     clickcounter = clickcounter + 1;
