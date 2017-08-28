@@ -51,7 +51,7 @@ function createTemplate() {
  
  return `<html>
     <head>
-        <title>$('title')</title>
+        <title>${title}</title>
         <meta content='width=device-width, initial-scale=1.0' name='viewport' />
         <link href="ui/style.css" rel="stylesheet"/>
     </head>
