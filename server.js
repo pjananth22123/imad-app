@@ -112,7 +112,7 @@ function createFullTemplate(name) {
         </h1>
         <a href='/'>home</a>
         <div>
-            <p>${date}</p>
+            <p>${date.toStringDate()}</p>
         </div>
         <hr/>
         ${content}
