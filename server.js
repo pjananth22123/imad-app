@@ -103,7 +103,7 @@ function createFullTemplate(name) {
     <head>
         <title>${title}</title>
         <meta content='width=device-width, initial-scale=1.0' name='viewport' />
-        <link href="ui/style.css" rel="stylesheet"/>
+        <link href="/ui/style.css" rel="stylesheet"/>
     </head>
     <body>
         <div class="container">
