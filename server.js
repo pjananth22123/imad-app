@@ -64,10 +64,10 @@ var template = {
 
 function createTemplate(name) {
     
-    var head = template[name].head;
-    var content = template[name].content;
-    var date = template[name].date;
-    var title = template[name].title;
+    var head = name.head;
+    var content = name.content;
+    var date = name.date;
+    var title = name.title;
  
  return `<html>
     <head>
@@ -142,9 +142,23 @@ app.get('/namelist',function(req,res){
    res.send(JSON.stringify(namelist));
 });
 
-app.get('/:articlename',function(req,res){
+app.get('/articles/:articlename',function(req,res){
    var name = req.params.articlename;
-   res.send(createTemplate(name)); 
+   
+   pool.query('select * from article where title = $1',[name],function(err,results){
+      
+      if(err){
+          res.status(505).send(err.toString());
+      } else{
+          if(results.rows.length === 0){
+              res.status(404).send('No rows selected');
+          } else{
+              var template = results.rows[0];
+              res.send(createTemplate(template)); 
+          }
+      }
+       
+   });
 });
 
 app.get('/article-two',function(req,res){
