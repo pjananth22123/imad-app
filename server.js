@@ -92,6 +92,36 @@ function createTemplate(name) {
     
 }
 
+function createFullTemplate(name) {
+    
+    var head = template[name].head;
+    var content = template[name].content;
+    var date = template[name].date;
+    var title = template[name].title;
+ 
+ return `<html>
+    <head>
+        <title>${title}</title>
+        <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+        <link href="ui/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container">
+        <h1 class="center underline">
+            ${head}
+        </h1>
+        <a href='/'>home</a>
+        <div>
+            <p>${date}</p>
+        </div>
+        <hr/>
+        ${content}
+        </div>
+    </body>
+</html>`;
+    
+}
+
 var countervar = 0;
 
 function counterfun(){
@@ -140,6 +170,14 @@ app.get('/namelist',function(req,res){
    var name = req.query.name;
    namelist.push(name);
    res.send(JSON.stringify(namelist));
+});
+
+app.get('/articles-ch/:articlename',function(req,res){
+   
+   var name = req.params.articlename;
+   
+   res.send(createFullTemplate(name));
+    
 });
 
 app.get('/articles/:articlename',function(req,res){
