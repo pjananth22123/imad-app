@@ -128,7 +128,7 @@ app.get('/test-db',function(req,res){
       if(err) {
           res.status(505).send(err.toString());
       } else{
-          res.send(results);
+          res.send(results.rows);
       }
    });
     
