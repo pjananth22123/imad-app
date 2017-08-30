@@ -99,7 +99,7 @@ function counterfun(){
     return countervar.toString();
 }
 
-const pool = new Pool({
+var pool = new Pool({
     user: 'pjananth22123',
   host: 'db.imad.hasura-app.io',
   database: 'pjananth22123',
