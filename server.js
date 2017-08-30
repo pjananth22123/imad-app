@@ -123,7 +123,7 @@ app.get('/ui/main.js', function (req, res) {
 
 app.get('/test-db',function(req,res){
    
-   pool.query('select * from test-data',function(err,results){
+   pool.query('select * from testdata',function(err,results){
        
       if(err) {
           res.status(505).send(err.toString());
