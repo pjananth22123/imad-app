@@ -2,6 +2,8 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 
+const { Pool } = require('pg');
+
 var app = express();
 app.use(morgan('combined'));
 
@@ -97,6 +99,14 @@ function counterfun(){
     return countervar.toString();
 }
 
+const pool = new Pool({
+    user: 'pjananth22123',
+  host: 'db.imad.hasura-app.io',
+  database: 'pjananth22123',
+  password: process.env.DB_PASSWORD,
+  port: 5432
+});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -107,6 +117,19 @@ app.get('/ui/style.css', function (req, res) {
 
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
+});
+
+app.get('/test-db',function(req,res){
+   
+   pool.query('select * from test-data',function(err,results){
+       
+      if(err) {
+          res.status(505).send(err.toString());
+      } else{
+          res.send(results);
+      }
+   });
+    
 });
 
 var namelist = [];
